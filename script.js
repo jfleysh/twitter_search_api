@@ -10,7 +10,7 @@ $(function(){
 		    a = a.from_user,
 		    b = b.from_user;
 
-		    return a.localeCompare(b);
+		    return b.localeCompare(a);
 		});
 		
 		var myList = $('ul');
