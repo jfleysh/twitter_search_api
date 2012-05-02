@@ -5,12 +5,16 @@ $(function(){
 	$.getJSON("http://search.twitter.com/search.json?callback=?&q=twitterapi",
 
 	function (data){
-	
+		
+		data.results.sort(function (a, b) {
+		    a = a.from_user,
+		    b = b.from_user;
+
+		    return a.localeCompare(b);
+		});
+		
 		var myList = $('ul');
 		var listItem = $('ul li.left');
-		
-		//console.log(data.results);
-	
 
 		for (i=0; i<data.results.length; i++){
 			listItem.append('<h1>'+data.results[i].from_user+'</h1>' + '<p>' + data.results[i].text + '</p>');
